@@ -2,6 +2,9 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import HomeNavigator from "./HomeNavigator";
+import NewButton from "../components/common/NewButton";
+import CreateInventoryScreen from "../screens/CreateInventoryScreen";
+import { Home } from "iconsax-react-native";
 
 const Tab = createBottomTabNavigator();
 
@@ -13,18 +16,16 @@ const AppNavigator = () => (
       options={{
         headerShown: false,
         tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="home" color={color} size={size} />
+          <Home size={size} color={color} variant="Bold" />
         ),
       }}
     />
-    {/* <Tab.Screen
-      name="ListingEdit"
-      component={ListingEditScreen}
+    <Tab.Screen
+      name="Create Inventory"
+      component={CreateInventoryScreen}
       options={({ navigation }) => ({
         tabBarButton: () => (
-          <NewListingButton
-            onPress={() => navigation.navigate("ListingEdit")}
-          />
+          <NewButton onPress={() => navigation.navigate("Create Inventory")} />
         ),
         tabBarIcon: ({ color, size }) => (
           <MaterialCommunityIcons
@@ -36,7 +37,7 @@ const AppNavigator = () => (
         headerShown: false,
       })}
     />
-    <Tab.Screen
+    {/* <Tab.Screen
       name="Account"
       component={AccountNavigator}
       options={{
