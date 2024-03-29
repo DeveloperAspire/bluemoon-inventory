@@ -1,5 +1,6 @@
 import { View, StyleSheet, TouchableOpacity, Image, Text } from "react-native";
 import React from "react";
+import AppText from "../AppText";
 
 import colors from "../../config/colors";
 
@@ -31,11 +32,11 @@ const InventoryItem: React.FC<ItemProps> = ({
         </View>
         <View style={{ flex: 3 }}>
           <View style={styles.detailsContainer}>
-            <Text style={styles.name}>{name}</Text>
-            <Text style={styles.subTitle}>NGN {price}</Text>
-            <Text style={styles.stock}>{totalStock} PCS</Text>
+            <AppText style={styles.name}>{name}</AppText>
+            <AppText style={styles.subTitle}>NGN {price}</AppText>
+            <AppText style={styles.stock}>{totalStock} PCS</AppText>
           </View>
-          <Text style={styles.desc}>{description}</Text>
+          <AppText style={styles.desc}>{description}</AppText>
         </View>
       </View>
     </TouchableOpacity>

@@ -1,10 +1,11 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import React from "react";
 import InventoryItem from "../components/common/InventoryItem";
+import Screen from "../components/Screen";
 
 const InventoryListingScreen = () => {
   return (
-    <View style={styles.container}>
+    <Screen style={styles.container}>
       <InventoryItem
         name="Beans"
         totalStock={3}
@@ -12,7 +13,7 @@ const InventoryListingScreen = () => {
         description="A bag of senegal beans"
         onPress={() => console.log("hello")}
       />
-    </View>
+    </Screen>
   );
 };
 
@@ -22,6 +23,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#F1F3F4",
-    padding: 10,
+    padding: 20,
   },
 });

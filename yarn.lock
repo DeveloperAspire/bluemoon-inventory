@@ -1195,6 +1195,11 @@
   dependencies:
     "@types/hammerjs" "^2.0.36"
 
+"@expo-google-fonts/mulish@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/mulish/-/mulish-0.2.3.tgz#5f1bd2bd199ed527ca2300e10c5e66ae906b0354"
+  integrity sha512-PACg8uKR0s6fq5kqBE4yT/pWZ+ltdtlJIn0yCzQfzvzYkQCaxjK4v3ZN6hkZVGx8a52ajlDfwRru3QrYv+dV/w==
+
 "@expo/bunyan@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@expo/bunyan/-/bunyan-4.0.0.tgz#be0c1de943c7987a9fbd309ea0b1acd605890c7b"

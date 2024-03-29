@@ -34,7 +34,6 @@ const AppNavigator = () => (
             size={size}
           />
         ),
-        headerShown: false,
       })}
     />
     {/* <Tab.Screen
