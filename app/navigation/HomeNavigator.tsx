@@ -7,7 +7,8 @@ const Stack = createStackNavigator();
 
 const HomeNavigator = () => (
   <Stack.Navigator
-    screenOptions={{ presentation: "modal", headerShown: false }}
+    screenOptions={{ presentation: "modal" }}
+    // screenOptions={{ presentation: "modal", headerShown: false }}
   >
     <Stack.Screen
       name="Inventory Listings"
