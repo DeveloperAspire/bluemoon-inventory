@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import Form from "../components/forms/AppForm";
 import FormField from "../components/forms/FormField";
 import FormButton from "../components/forms/FormButton";
+import AppButton from "../components/AppButton";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().min(1).label("Name"),
@@ -65,7 +66,8 @@ const EditInventoryScreen = () => {
           label="Description"
           autoFocus={false}
         />
-        <FormButton title="Save" />
+        <FormButton title="Save Edit" />
+        <AppButton title="Delete" onPress={() => console.log("DELETE")} />
       </Form>
     </Screen>
   );
