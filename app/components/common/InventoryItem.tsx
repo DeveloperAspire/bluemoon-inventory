@@ -24,18 +24,16 @@ const InventoryItem: React.FC<ItemProps> = ({
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.card}>
-        <View style={{ flex: 1 }}>
+        <View style={{}}>
           <Image
             style={styles.image}
             source={require("../../../assets/beans.jpeg")}
           />
         </View>
-        <View style={{ flex: 3 }}>
-          <View style={styles.detailsContainer}>
-            <AppText style={styles.name}>{name}</AppText>
-            <AppText style={styles.subTitle}>NGN {price}</AppText>
-            <AppText style={styles.stock}>{totalStock} PCS</AppText>
-          </View>
+        <View style={styles.detailsContainer}>
+          <AppText style={styles.name}>{name}</AppText>
+          <AppText style={styles.price}>₦ {price}</AppText>
+          <AppText style={styles.stock}>{totalStock} Pcs</AppText>
           <AppText style={styles.desc}>{description}</AppText>
         </View>
       </View>
@@ -58,16 +56,13 @@ const styles = StyleSheet.create({
   },
   detailsContainer: {
     padding: 20,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
   },
   image: {
-    width: 50,
-    height: 50,
+    width: 70,
+    height:70,
   },
-  subTitle: {
-    //     color: colors.primary,
+  price: {
+    color: colors.primary,
   },
   name: {
     marginBottom: 7,
@@ -80,6 +75,8 @@ const styles = StyleSheet.create({
   },
   desc: {
     textAlign: "left",
+    width: "80%",
+    marginTop: 10,
   },
 });
 

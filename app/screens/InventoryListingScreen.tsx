@@ -3,15 +3,26 @@ import React from "react";
 import InventoryItem from "../components/common/InventoryItem";
 import Screen from "../components/Screen";
 
-const InventoryListingScreen = () => {
+const InventoryListingScreen = ({
+  navigation,
+}: {
+  navigation: Record<string, any>;
+}) => {
   return (
     <Screen style={styles.container}>
       <InventoryItem
-        name="Beans"
+        name="Bags of senegal beans"
         totalStock={3}
-        price={60}
-        description="A bag of senegal beans"
-        onPress={() => console.log("hello")}
+        price={60000}
+        description="Bags of senegal beans due for delivery and sale"
+        onPress={() =>
+          navigation.navigate("Inventory Details", {
+            name: "Bags of senegal beans",
+            price: 60000,
+            description: "Bags of senegal beans due for delivery and sale",
+            stock: 3,
+          })
+        }
       />
     </Screen>
   );
