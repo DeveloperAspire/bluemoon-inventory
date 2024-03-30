@@ -5,8 +5,15 @@ import HomeNavigator from "./HomeNavigator";
 import NewButton from "../components/common/NewButton";
 import CreateInventoryScreen from "../screens/CreateInventoryScreen";
 import { Home } from "iconsax-react-native";
+import { StackParamList } from "./HomeNavigator";
+import { NavigatorScreenParams } from "@react-navigation/native";
 
-const Tab = createBottomTabNavigator();
+export type TabParamList = {
+  Home: undefined;
+  CreateInventory: undefined;
+};
+
+const Tab = createBottomTabNavigator<TabParamList>();
 
 const AppNavigator = () => (
   <Tab.Navigator>
@@ -21,11 +28,11 @@ const AppNavigator = () => (
       }}
     />
     <Tab.Screen
-      name="Create Inventory"
+      name="CreateInventory"
       component={CreateInventoryScreen}
       options={({ navigation }) => ({
         tabBarButton: () => (
-          <NewButton onPress={() => navigation.navigate("Create Inventory")} />
+          <NewButton onPress={() => navigation.navigate("CreateInventory")} />
         ),
         tabBarIcon: ({ color, size }) => (
           <MaterialCommunityIcons

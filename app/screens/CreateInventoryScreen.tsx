@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { FormikHelpers } from "formik";
 import { InventoryType } from "../services/helpers";
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import Screen from "../components/Screen";
 import Form from "../components/forms/AppForm";

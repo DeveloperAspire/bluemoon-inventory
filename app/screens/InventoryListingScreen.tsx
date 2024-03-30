@@ -49,7 +49,7 @@ const InventoryListingScreen = ({
             description={item.description}
             image={item.image}
             onPress={() =>
-              navigation.navigate("Edit Inventory", {
+              navigation.navigate("EditInventory", {
                 ...item,
               })
             }

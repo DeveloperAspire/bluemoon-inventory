@@ -3,6 +3,8 @@ import React from "react";
 import Screen from "../components/Screen";
 import * as Yup from "yup";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { StackScreenProps } from "@react-navigation/stack";
+
 import helpers from "../services/helpers";
 
 import Form from "../components/forms/AppForm";
@@ -12,6 +14,7 @@ import AppButton from "../components/AppButton";
 import FormImagePicker from "../components/forms/FormImagePicker";
 import { FormikHelpers } from "formik";
 import { InventoryType } from "../services/helpers";
+import { StackParamList } from "../navigation/HomeNavigator";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().min(1).label("Name"),
@@ -21,23 +24,19 @@ const validationSchema = Yup.object().shape({
   image: Yup.string().required().min(1).label("Please select an image"),
 });
 
-const EditInventoryScreen = ({
-  route,
-  navigation,
-}: {
-  route: Record<string, any>;
-  navigation: Record<string, any>;
-}) => {
+type Props = StackScreenProps<StackParamList, "EditInventory">;
+
+const EditInventoryScreen: React.FC<Props> = ({ route, navigation }) => {
   const inventoryData = route.params;
 
-  console.log(inventoryData);
   const handleSubmit = async (
     values: Omit<InventoryType, "id">,
     { resetForm }: FormikHelpers<Omit<InventoryType, "id">>
   ) => {
     helpers.updateInventoryItem(inventoryData.id, { ...values });
 
-    navigation.navigate("Home");
+    navigation.goBack();
+
     resetForm();
   };
 
@@ -47,7 +46,7 @@ const EditInventoryScreen = ({
         text: "Yes",
         onPress: () => {
           helpers.deleteInventoryItem(inventoryData.id);
-          navigation.navigate("Home");
+          navigation.goBack();
         },
       },
       { text: "No" },
