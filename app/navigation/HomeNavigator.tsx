@@ -1,7 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import InventoryListingScreen from "../screens/InventoryListingScreen";
-import InventoryDetailsScreen from "../screens/InventoryDetailsScreen";
 import EditInventoryScreen from "../screens/EditInventoryScreen";
 
 const Stack = createStackNavigator();
@@ -15,7 +14,6 @@ const HomeNavigator = () => (
       name="Inventory Listings"
       component={InventoryListingScreen}
     />
-    <Stack.Screen name="Inventory Details" component={InventoryDetailsScreen} />
     <Stack.Screen
       name="Edit Inventory"
       component={EditInventoryScreen}

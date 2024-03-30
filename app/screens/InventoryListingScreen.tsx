@@ -16,7 +16,7 @@ const InventoryListingScreen = ({
         price={60000}
         description="Bags of senegal beans due for delivery and sale"
         onPress={() =>
-          navigation.navigate("Inventory Details", {
+          navigation.navigate("Edit Inventory", {
             name: "Bags of senegal beans",
             price: 60000,
             description: "Bags of senegal beans due for delivery and sale",
