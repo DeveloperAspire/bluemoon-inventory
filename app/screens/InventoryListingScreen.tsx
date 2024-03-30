@@ -52,10 +52,7 @@ const InventoryListingScreen = ({
             image={item.image}
             onPress={() =>
               navigation.navigate("Edit Inventory", {
-                name: "Bags of senegal beans",
-                price: 60000,
-                description: "Bags of senegal beans due for delivery and sale",
-                stock: 3,
+               ...item
               })
             }
           />

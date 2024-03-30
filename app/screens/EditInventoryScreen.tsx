@@ -1,8 +1,9 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Alert } from "react-native";
 import React from "react";
 import Screen from "../components/Screen";
 import * as Yup from "yup";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import helpers from "../services/helpers";
 
 import Form from "../components/forms/AppForm";
 import FormField from "../components/forms/FormField";
@@ -18,10 +19,24 @@ const validationSchema = Yup.object().shape({
   image: Yup.string().required().min(1).label("Please select an image"),
 });
 
-const EditInventoryScreen = () => {
+const EditInventoryScreen = ({ route }: { route: Record<string, any> }) => {
+  const inventoryData = route.params;
+
+  console.log(inventoryData);
   const handleSubmit = async () => {
     //     resetForm();
   };
+
+  const handleDelete = () => {
+    Alert.alert("Delete", "Are you sure you want to delete this item?", [
+      {
+        text: "Yes",
+        onPress: () => helpers.deleteInventoryItem(inventoryData.id),
+      },
+      { text: "No" },
+    ]);
+  };
+
   return (
     <Screen style={styles.container}>
       <KeyboardAwareScrollView
@@ -74,7 +89,7 @@ const EditInventoryScreen = () => {
             autoFocus={false}
           />
           <FormButton title="Save Edit" />
-          <AppButton title="Delete" onPress={() => console.log("DELETE")} />
+          <AppButton title="Delete" onPress={() => handleDelete()} />
         </Form>
       </KeyboardAwareScrollView>
     </Screen>
