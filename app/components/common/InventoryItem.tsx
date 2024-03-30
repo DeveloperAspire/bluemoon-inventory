@@ -1,6 +1,7 @@
 import { View, StyleSheet, TouchableOpacity, Image, Text } from "react-native";
 import React from "react";
 import AppText from "../AppText";
+import helpers from "../../services/helpers";
 
 import colors from "../../config/colors";
 
@@ -35,10 +36,10 @@ const InventoryItem: React.FC<ItemProps> = ({
             style={{ flexDirection: "row", justifyContent: "space-between" }}
           >
             <AppText style={styles.price} bold>
-              ₦ {price.toLocaleString("en-US")}
+              ₦ {helpers.formatNumberWithCommas(price)}
             </AppText>
             <AppText style={styles.stock} bold>
-              {totalStock} Pcs
+              {helpers.formatNumberWithCommas(totalStock)} Pcs
             </AppText>
           </View>
           <AppText style={styles.desc}>{description}</AppText>

@@ -95,10 +95,15 @@ const generateRandomId = (length: number): string => {
   return result;
 };
 
+const formatNumberWithCommas = (num: number): string => {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
 export default {
   addInventoryItem,
   updateInventoryItem,
   deleteInventoryItem,
   generateRandomId,
   fetchAllInventoryItems,
+  formatNumberWithCommas,
 };
