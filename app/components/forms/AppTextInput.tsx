@@ -29,6 +29,7 @@ const AppTextInput: React.FC<InputProps> = ({
           autoFocus={autoFocus}
           placeholderTextColor={colors.medium}
           {...otherProps}
+          style={styles.input}
         />
       </View>
     </View>
@@ -49,10 +50,11 @@ const styles = StyleSheet.create({
     width: "100%",
     borderColor: colors.light,
     backgroundColor: colors.light,
-    alignSelf: "center",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
     marginTop: 5,
+  },
+  input: {
+    paddingHorizontal: 10,
+    height: "100%",
+    fontFamily: "Mulish_400Regular",
   },
 });
