@@ -7,6 +7,7 @@ import {
   Mulish_400Regular,
   Mulish_500Medium,
   Mulish_600SemiBold,
+  Mulish_700Bold,
 } from "@expo-google-fonts/mulish";
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
     Mulish_400Regular,
     Mulish_500Medium,
     Mulish_600SemiBold,
+    Mulish_700Bold,
   });
 
   if (!fontsLoaded && !fontError) {

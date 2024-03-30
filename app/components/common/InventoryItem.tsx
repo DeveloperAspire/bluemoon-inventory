@@ -28,9 +28,19 @@ const InventoryItem: React.FC<ItemProps> = ({
           <Image style={styles.image} source={{ uri: image }} />
         </View>
         <View style={styles.detailsContainer}>
-          <AppText style={styles.name}>{name}</AppText>
-          <AppText style={styles.price}>₦ {price}</AppText>
-          <AppText style={styles.stock}>{totalStock} Pcs</AppText>
+          <AppText style={styles.name} bold>
+            {name}
+          </AppText>
+          <View
+            style={{ flexDirection: "row", justifyContent: "space-between" }}
+          >
+            <AppText style={styles.price} bold>
+              ₦ {price.toLocaleString("en-US")}
+            </AppText>
+            <AppText style={styles.stock} bold>
+              {totalStock} Pcs
+            </AppText>
+          </View>
           <AppText style={styles.desc}>{description}</AppText>
         </View>
       </View>
@@ -50,9 +60,10 @@ const styles = StyleSheet.create({
     padding: 10,
     borderWidth: 1,
     borderColor: "#e4e7ec",
+    gap: 20,
   },
   detailsContainer: {
-    padding: 20,
+    flex: 1,
   },
   image: {
     width: 70,
@@ -73,8 +84,8 @@ const styles = StyleSheet.create({
   },
   desc: {
     textAlign: "left",
-    width: "80%",
     marginTop: 10,
+    fontSize: 16,
   },
 });
 

@@ -12,10 +12,7 @@ export type StackParamList = {
 const Stack = createStackNavigator<StackParamList>();
 
 const HomeNavigator = () => (
-  <Stack.Navigator
-    screenOptions={{ presentation: "modal" }}
-    // screenOptions={{ presentation: "modal", headerShown: false }}
-  >
+  <Stack.Navigator screenOptions={{ presentation: "modal" }}>
     <Stack.Screen name="InventoryListings" component={InventoryListingScreen} />
     <Stack.Screen
       name="EditInventory"

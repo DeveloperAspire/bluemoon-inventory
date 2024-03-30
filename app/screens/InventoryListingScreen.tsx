@@ -35,7 +35,7 @@ const InventoryListingScreen = ({
   return (
     <Screen style={styles.container}>
       {inventoryList?.length === 0 && (
-        <AppText>You don't have a saved inventory yet! 😃</AppText>
+        <AppText centered>You don't have a saved inventory yet! 😃</AppText>
       )}
 
       <FlatList

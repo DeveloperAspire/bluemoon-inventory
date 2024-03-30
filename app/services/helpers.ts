@@ -22,10 +22,8 @@ const addInventoryItem = async (item: InventoryType) => {
     }
 
     await datastore.storeData("inventory", newData);
-    return true; // Success
   } catch (error) {
     console.error("Error adding inventory item: ", error);
-    return false; // Failed
   }
 };
 
@@ -50,10 +48,8 @@ const updateInventoryItem = async (
     });
 
     await datastore.storeData("inventory", updatedData);
-    return true; // Success
   } catch (error) {
     console.error("Error updating inventory item: ", error);
-    return false; // Failed
   }
 };
 
@@ -71,11 +67,8 @@ const deleteInventoryItem = async (itemId: string) => {
       );
       await datastore.storeData("inventory", updatedData);
     }
-
-    return true; // Success
   } catch (error) {
     console.error("Error deleting inventory item: ", error);
-    return false; // Failed
   }
 };
 

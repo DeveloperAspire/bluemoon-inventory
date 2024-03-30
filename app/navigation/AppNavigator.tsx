@@ -5,8 +5,6 @@ import HomeNavigator from "./HomeNavigator";
 import NewButton from "../components/common/NewButton";
 import CreateInventoryScreen from "../screens/CreateInventoryScreen";
 import { Home } from "iconsax-react-native";
-import { StackParamList } from "./HomeNavigator";
-import { NavigatorScreenParams } from "@react-navigation/native";
 
 export type TabParamList = {
   Home: undefined;
