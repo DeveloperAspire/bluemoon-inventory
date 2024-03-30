@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<RCTSafeAreaView
+  style={
+    [
+      {
+        "flex": 1,
+        "paddingTop": 54,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      [
+        {
+          "flex": 1,
+        },
+        {
+          "backgroundColor": "#F1F3F4",
+          "flex": 1,
+          "padding": 20,
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "color": "#000",
+            "fontFamily": "Mulish_400Regular",
+            "fontSize": 18,
+            "paddingHorizontal": 5,
+            "paddingVertical": 2,
+          },
+          undefined,
+          {
+            "textAlign": "center",
+          },
+          undefined,
+        ]
+      }
+    >
+      You don't have a saved inventory yet! 😃
+    </Text>
+    <RCTScrollView
+      data={[]}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      keyExtractor={[Function]}
+      onContentSizeChange={[Function]}
+      onLayout={[Function]}
+      onMomentumScrollBegin={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={0.0001}
+      stickyHeaderIndices={[]}
+      viewabilityConfigCallbackPairs={[]}
+    >
+      <View />
+    </RCTScrollView>
+  </View>
+</RCTSafeAreaView>
+`;
