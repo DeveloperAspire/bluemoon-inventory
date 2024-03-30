@@ -1,6 +1,6 @@
 import datastore from "./datastore";
 
-interface InventoryType {
+export interface InventoryType {
   name: string;
   stock: number;
   price: number;

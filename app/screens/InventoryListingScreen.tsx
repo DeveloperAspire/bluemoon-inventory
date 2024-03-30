@@ -30,9 +30,7 @@ const InventoryListingScreen = ({
     };
 
     fetchInventory();
-  }, []);
-
-  console.log(inventoryList);
+  });
 
   return (
     <Screen style={styles.container}>
@@ -52,7 +50,7 @@ const InventoryListingScreen = ({
             image={item.image}
             onPress={() =>
               navigation.navigate("Edit Inventory", {
-               ...item
+                ...item,
               })
             }
           />

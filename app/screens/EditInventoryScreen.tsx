@@ -10,6 +10,8 @@ import FormField from "../components/forms/FormField";
 import FormButton from "../components/forms/FormButton";
 import AppButton from "../components/AppButton";
 import FormImagePicker from "../components/forms/FormImagePicker";
+import { FormikHelpers } from "formik";
+import { InventoryType } from "../services/helpers";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().min(1).label("Name"),
@@ -19,19 +21,34 @@ const validationSchema = Yup.object().shape({
   image: Yup.string().required().min(1).label("Please select an image"),
 });
 
-const EditInventoryScreen = ({ route }: { route: Record<string, any> }) => {
+const EditInventoryScreen = ({
+  route,
+  navigation,
+}: {
+  route: Record<string, any>;
+  navigation: Record<string, any>;
+}) => {
   const inventoryData = route.params;
 
   console.log(inventoryData);
-  const handleSubmit = async () => {
-    //     resetForm();
+  const handleSubmit = async (
+    values: Omit<InventoryType, "id">,
+    { resetForm }: FormikHelpers<Omit<InventoryType, "id">>
+  ) => {
+    helpers.updateInventoryItem(inventoryData.id, { ...values });
+
+    navigation.navigate("Home");
+    resetForm();
   };
 
   const handleDelete = () => {
     Alert.alert("Delete", "Are you sure you want to delete this item?", [
       {
         text: "Yes",
-        onPress: () => helpers.deleteInventoryItem(inventoryData.id),
+        onPress: () => {
+          helpers.deleteInventoryItem(inventoryData.id);
+          navigation.navigate("Home");
+        },
       },
       { text: "No" },
     ]);
@@ -45,10 +62,10 @@ const EditInventoryScreen = ({ route }: { route: Record<string, any> }) => {
       >
         <Form
           initialValues={{
-            name: "",
-            price: "",
-            description: "",
-            stock: "",
+            name: inventoryData.name,
+            price: inventoryData.price,
+            description: inventoryData.description,
+            stock: inventoryData.stock,
             image: "",
           }}
           onSubmit={handleSubmit}

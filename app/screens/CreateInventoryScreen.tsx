@@ -2,6 +2,8 @@ import { StyleSheet } from "react-native";
 import React from "react";
 import * as Yup from "yup";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { FormikHelpers } from "formik";
+import { InventoryType } from "../services/helpers";
 
 import Screen from "../components/Screen";
 import Form from "../components/forms/AppForm";
@@ -18,13 +20,18 @@ const validationSchema = Yup.object().shape({
   image: Yup.string().required().min(1).label("Please select an image"),
 });
 
-const CreateInventoryScreen = () => {
-  const handleSubmit = async (values: any) => {
+const CreateInventoryScreen = ({ navigation }: { navigation: any }) => {
+  const handleSubmit = async (
+    values: Omit<InventoryType, "id">,
+    { resetForm }: FormikHelpers<Omit<InventoryType, "id">>
+  ) => {
     const id = helpers.generateRandomId(8);
 
     helpers.addInventoryItem({ ...values, id });
 
-    // resetForm();
+    navigation.navigate("Home");
+
+    resetForm();
   };
   return (
     <Screen style={styles.container}>
@@ -35,9 +42,9 @@ const CreateInventoryScreen = () => {
         <Form
           initialValues={{
             name: "",
-            price: "",
+            price: 0,
             description: "",
-            stock: "",
+            stock: 0,
             image: "",
           }}
           onSubmit={handleSubmit}
