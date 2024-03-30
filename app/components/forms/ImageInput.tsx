@@ -6,7 +6,7 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Camera } from "iconsax-react-native";
 import { View, StyleSheet } from "react-native";
 import colors from "../../config/colors";
 
@@ -58,13 +58,7 @@ const ImageInput = ({
   return (
     <TouchableWithoutFeedback onPress={handlePress}>
       <View style={styles.container}>
-        {!imageUri && (
-          <MaterialCommunityIcons
-            name="camera"
-            size={40}
-            color={colors.medium}
-          />
-        )}
+        {!imageUri && <Camera size="32" color={colors.medium} variant="Bold" />}
         {imageUri && <Image source={{ uri: imageUri }} style={styles.image} />}
       </View>
     </TouchableWithoutFeedback>

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import React from "react";
 import Screen from "../components/Screen";
 import * as Yup from "yup";
@@ -6,7 +6,6 @@ import * as Yup from "yup";
 import Form from "../components/forms/AppForm";
 import FormField from "../components/forms/FormField";
 import FormButton from "../components/forms/FormButton";
-import ImageInput from "../components/forms/ImageInput";
 import FormImagePicker from "../components/forms/FormImagePicker";
 
 const validationSchema = Yup.object().shape({
@@ -14,10 +13,7 @@ const validationSchema = Yup.object().shape({
   price: Yup.number().required().min(1).max(10000).label("Price"),
   stock: Yup.number().required().min(1).max(10000).label("Total Stock"),
   description: Yup.string().min(3).label("Description"),
-  image: Yup.string()
-    .required()
-    .min(1)
-    .label("Please select at least one image"),
+  image: Yup.string().required().min(1).label("Please select an image"),
 });
 
 const CreateInventoryScreen = () => {
