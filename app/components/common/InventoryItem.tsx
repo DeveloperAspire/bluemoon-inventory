@@ -10,7 +10,7 @@ interface ItemProps {
   price: number;
   description: string;
   onPress: () => void;
-  //   image: string;
+  image: string;
 }
 
 const InventoryItem: React.FC<ItemProps> = ({
@@ -18,17 +18,14 @@ const InventoryItem: React.FC<ItemProps> = ({
   totalStock,
   price,
   description,
-  //   image,
+  image,
   onPress,
 }) => {
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.card}>
         <View style={{}}>
-          <Image
-            style={styles.image}
-            source={require("../../../assets/beans.jpeg")}
-          />
+          <Image style={styles.image} source={{ uri: image }} />
         </View>
         <View style={styles.detailsContainer}>
           <AppText style={styles.name}>{name}</AppText>
@@ -59,7 +56,8 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 70,
-    height:70,
+    height: 70,
+    borderRadius: 8,
   },
   price: {
     color: colors.primary,

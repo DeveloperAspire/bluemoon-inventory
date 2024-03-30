@@ -8,6 +8,7 @@ import Form from "../components/forms/AppForm";
 import FormField from "../components/forms/FormField";
 import FormButton from "../components/forms/FormButton";
 import FormImagePicker from "../components/forms/FormImagePicker";
+import helpers from "../services/helpers";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().min(1).label("Name"),
@@ -19,8 +20,11 @@ const validationSchema = Yup.object().shape({
 
 const CreateInventoryScreen = () => {
   const handleSubmit = async (values: any) => {
-    console.log(values);
-    //     resetForm();
+    const id = helpers.generateRandomId(8);
+
+    helpers.addInventoryItem({ ...values, id });
+
+    // resetForm();
   };
   return (
     <Screen style={styles.container}>

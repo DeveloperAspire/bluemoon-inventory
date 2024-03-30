@@ -79,8 +79,33 @@ const deleteInventoryItem = async (itemId: string) => {
   }
 };
 
+const fetchAllInventoryItems = async (): Promise<InventoryType[] | null> => {
+  try {
+    const allItems = await datastore.getData("inventory");
+    return allItems;
+  } catch (error) {
+    console.error("Error fetching all items: ", error);
+    return null;
+  }
+};
+
+const generateRandomId = (length: number): string => {
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const charactersLength = characters.length;
+  let result = "";
+
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+
+  return result;
+};
+
 export default {
   addInventoryItem,
   updateInventoryItem,
   deleteInventoryItem,
+  generateRandomId,
+  fetchAllInventoryItems,
 };
