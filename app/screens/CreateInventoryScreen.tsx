@@ -4,7 +4,8 @@ import * as Yup from "yup";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { FormikHelpers } from "formik";
 import { InventoryType } from "../services/helpers";
-import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
+
 
 import Screen from "../components/Screen";
 import Form from "../components/forms/AppForm";
@@ -12,6 +13,7 @@ import FormField from "../components/forms/FormField";
 import FormButton from "../components/forms/FormButton";
 import FormImagePicker from "../components/forms/FormImagePicker";
 import helpers from "../services/helpers";
+import { TabParamList } from "../navigation/AppNavigator";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().min(1).label("Name"),
@@ -21,7 +23,9 @@ const validationSchema = Yup.object().shape({
   image: Yup.string().required().min(1).label("Please select an image"),
 });
 
-const CreateInventoryScreen = ({ navigation }: { navigation: any }) => {
+type Props = BottomTabScreenProps<TabParamList, "CreateInventory">;
+
+const CreateInventoryScreen: React.FC<Props> = ({ navigation }) => {
   const handleSubmit = async (
     values: Omit<InventoryType, "id">,
     { resetForm }: FormikHelpers<Omit<InventoryType, "id">>
