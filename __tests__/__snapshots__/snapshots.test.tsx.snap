@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`InventoryListingScreen renders the inventory listing screen correctly 1`] = `
 <RCTSafeAreaView
   style={
     [

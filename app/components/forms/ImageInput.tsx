@@ -1,10 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  Alert,
-  Image,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-} from "react-native";
+import { Alert, Image, TouchableWithoutFeedback } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { Camera } from "iconsax-react-native";
 import { View, StyleSheet } from "react-native";
@@ -18,9 +13,15 @@ const ImageInput = ({
   onChangeImage: (uri: string | null) => void;
 }) => {
   const requestPermission = async () => {
-    const { granted } = await ImagePicker.requestCameraPermissionsAsync();
-    if (!granted) {
-      alert("You need to enable permission to access the library");
+    try {
+      const { granted } = await ImagePicker.requestCameraPermissionsAsync();
+
+      if (!granted) {
+        Alert.alert("You need to enable permission to access the library");
+      }
+    } catch (error) {
+      console.error("Error requesting camera permissions: ", error);
+      Alert.alert("Error requesting camera permissions");
     }
   };
 

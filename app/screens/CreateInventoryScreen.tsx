@@ -6,7 +6,6 @@ import { FormikHelpers } from "formik";
 import { InventoryType } from "../services/helpers";
 import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 
-
 import Screen from "../components/Screen";
 import Form from "../components/forms/AppForm";
 import FormField from "../components/forms/FormField";
