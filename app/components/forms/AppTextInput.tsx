@@ -1,6 +1,7 @@
 import React from "react";
-import { View, StyleSheet, TextInput, Text } from "react-native";
+import { View, StyleSheet, TextInput } from "react-native";
 import colors from "../../config/colors";
+import AppText from "../AppText";
 
 interface InputProps {
   placeholder: string;
@@ -20,7 +21,7 @@ const AppTextInput: React.FC<InputProps> = ({
 }) => {
   return (
     <View style={styles.container}>
-      <Text>{label}</Text>
+      <AppText>{label}</AppText>
 
       <View style={styles.inputContainer}>
         <TextInput
